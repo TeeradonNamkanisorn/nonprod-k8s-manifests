@@ -2,9 +2,21 @@ name: Repository Dispatch
 on:
   repository_dispatch:
     types: [app-built]
-jobs: 
+jobs:
   commit-latest-image:
     runs-on: ubuntu-latest
     steps:
       - name: test
         run: echo "Received event(s)!"
+      - name: config git
+        run: |
+          git config --global user.email "theme.2541@gmail.com"
+          git config --global user.name "TeeradonNamkanisorn"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Replace string
+        run: yq -i '.spec.template.containers[0].image = theme256/my-app/latest'
+      - name: commit git
+        run: git commit -m 'update image to the latest version'
+      - name: push
+        run: git push origin main
