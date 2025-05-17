@@ -3,21 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: simple-deploy
-  name: simple-deploy
+    app: my-app
+  name: my-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: simple-deploy
+      app: my-app
+  strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: simple-deploy
+        app: my-app
     spec:
       containers:
-        - image: nginx
-          name: simple-deploy
-          resources: {}
+      - image: nginx
+        name: nginx
+        resources: {}
 status: {}
