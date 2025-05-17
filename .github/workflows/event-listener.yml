@@ -1,0 +1,10 @@
+name: Repository Dispatch
+on:
+  repository_dispatch:
+    types: [app-built]
+jobs: 
+  commit-latest-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "Received event(s)!"
