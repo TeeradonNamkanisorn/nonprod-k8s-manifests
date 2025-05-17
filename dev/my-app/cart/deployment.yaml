@@ -10,7 +10,6 @@ spec:
   selector:
     matchLabels:
       app: simple-deploy
-  strategy: {}
   template:
     metadata:
       creationTimestamp: null
@@ -19,6 +18,6 @@ spec:
     spec:
       containers:
         - image: nginx
-          name: "simple-deploy"
+          name: simple-deploy
           resources: {}
 status: {}
