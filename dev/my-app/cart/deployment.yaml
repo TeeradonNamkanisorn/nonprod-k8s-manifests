@@ -18,7 +18,7 @@ spec:
         app: my-app
     spec:
       containers:
-        - image: theme256/my-app/latest
+        - image: theme256/my-app:latest
           name: nginx
           resources: {}
 status: {}
