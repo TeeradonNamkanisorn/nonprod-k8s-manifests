@@ -14,6 +14,8 @@ jobs:
           git config --global user.name "TeeradonNamkanisorn"
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.REPOSITORY_ACCESS_TOKEN }}
       - name: Replace string
         run: yq -i '.spec.template.containers[0].image = "theme256/my-app/latest"' dev/my-app/cart/deployment.yaml
       - name: add and commit git
