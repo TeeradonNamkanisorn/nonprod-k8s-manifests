@@ -17,7 +17,7 @@ jobs:
         with:
           token: ${{ secrets.REPOSITORY_ACCESS_TOKEN }}
       - name: Replace string
-        run: yq -i '.spec.template.containers[0].image = "theme256/my-app/latest"' dev/my-app/cart/deployment.yaml
+        run: yq -i '.spec.template.spec.containers[0].image = "theme256/my-app/latest"' dev/my-app/cart/deployment.yaml
       - name: add and commit git
         run: |
           git add .
